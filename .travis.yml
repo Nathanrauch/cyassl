@@ -5,3 +5,4 @@ compiler:
   - icc
 # Change this to your needs
 script: ./autogen.sh && ./configure && make
+script: ./autogen.sh && ./configure --enable-debug --enable-psk && make
