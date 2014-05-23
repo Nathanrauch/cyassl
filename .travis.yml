@@ -3,4 +3,4 @@ compiler:
   - gcc
   - clang
 # Change this to your needs
-script: ./autogen.sh && ./configure && make && make install && make test
+script: ./autogen.sh && ./configure && make
