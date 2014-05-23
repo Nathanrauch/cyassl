@@ -3,4 +3,15 @@ compiler:
   - gcc
   - clang
 # Change this to your needs
-script: ./autogen.sh && ./configure && make
+script: 
+  - ./autogen.sh && ./configure && make
+  - ./autogen.sh && ./configure --enable-debug && make
+  - ./autogen.sh && ./configure --enable-signlethreaded && make
+  - ./autogen.sh && ./configure --enable-dtls && make
+  - ./autogen.sh && ./configure --enable-opensslextra && make
+  - ./autogen.sh && ./configure --enable-ipv6 && make
+  - ./autogen.sh && ./configure --enable-bump && make
+  - ./autogen.sh && ./configure --enable-leanpsk && make
+  - ./autogen.sh && ./configure --enable-bigcache && make
+  - ./autogen.sh && ./configure --enable-smallcache && make
+
