@@ -2,5 +2,6 @@ language: c
 compiler:
   - gcc
   - clang
+  - icc
 # Change this to your needs
 script: ./autogen.sh && ./configure && make
