@@ -1,3 +1,11 @@
+notifications:
+  email:
+    recipients:
+      - nathan@wolfssl.com
+      - nathangrauch@gmail.com
+    on_success: never
+    on_failure: always
+
 language: c
 compiler:
   - gcc
