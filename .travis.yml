@@ -5,4 +5,4 @@ compiler:
 # Change this to your needs
 script: 
   - ./autogen.sh && ./configure --disable-examples --enable-dtls --enable-ipv6 --enable-bump && make
-  - ./autogen.sh && ./configure --disable-examples --leanpsk && make
+  - ./autogen.sh && ./configure --disable-examples --enable-leanpsk && make
