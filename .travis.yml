@@ -8,53 +8,59 @@ before_script: ./autogen.sh
 #magic
 matrix:
   fast_finish: true
-      env:
-        - TEST = debug
-        - TEST = singlethreaded 
-        - TEST = dtls 
-        - TEST = ipv6 
-        - TEST = bump 
-        - TEST = leanpsk
-        - TEST = bigcache 
-        - TEST = hugecache
-        - TEST = smallcache 
-        - TEST = savesession 
-        - TEST = savecert 
-        - TEST = atomicuser 
-        - TEST = pkcallbacks 
-        - TEST = sniffer 
-        - TEST = aesgcm 
-        - TEST = aesccm 
-        - TEST = aesni 
-        - TEST = camellia 
-        - TEST = md2 
-        - TEST = nullcipher 
-        - TEST = ripemd 
-        - TEST = blake2 
-        - TEST = sha512
-        - TEST = sessioncerts 
-        - TEST = keygen 
-        - TEST = certgen 
-        - TEST = sep 
-        - TEST = dsa 
-        - TEST = ecc 
-        - TEST = psk
-        - TEST = stacksize 
-        - TEST = md4 
-        - TEST = pwdbased 
-        - TEST = hc128 
-        - TEST = rabbit 
-        - TEST = webserver 
-        - TEST = ocsp 
-        - TEST = crl 
-        - TEST = crl-monitor 
-        - TEST = ntru 
-        - TEST = sni 
-        - TEST = maxfragment 
-        - TEST = truncatedhmac 
-        - TEST = testcert 
-        - TEST = fastmath 
-        - TEST = fasthugemath 
-        - TEST = mcapi 
-    
-script: ./configure --enable-TEST && make
+  - script: ./configure --enable-debug && make
+  - script: ./configure --enable-singlethreaded && make
+  - script: ./configure --enable-dtls && make
+  - script: ./configure --enable-ipv6 && make
+  - script: ./configure --enable-bump && make
+  - script: ./configure --enable-leanpsk && make
+  - script: ./configure --enable-bigcache && make
+  - script: ./configure --enable-hugecache && make
+  - script: ./configure --enable-smallcache && make
+  - script: ./configure --enable-savesession && make
+  - script: ./configure --enable-savecert && make
+  - script: ./configure --enable-atomicuser && make
+  - script: ./configure --enable-pkcallbacks && make
+  - script: ./configure --enable-sniffer && make
+  - script: ./configure --enable-aesgcm && make
+  - script: ./configure --enable-aesccm && make
+  - script: ./configure --enable-aesni && make
+  - script: ./configure --enable-camellia && make
+  - script: ./configure --enable-md2 && make
+  - script: ./configure --enable-nullcipher && make
+  - script: ./configure --enable-ripemd && make
+  - script: ./configure --enable-blake2 && make
+  - script: ./configure --enable-sha512 && make
+  - script: ./configure --enable-sessioncerts && make
+  - script: ./configure --enable-keygen && make
+  - script: ./configure --enable-certgen && make
+  - script: ./configure --enable-sep && make
+  - script: ./configure --enable-dsa && make
+  - script: ./configure --enable-ecc && make
+  - script: ./configure --enable-psk && make
+  - script: ./configure --enable-stacksize && make
+  - script: ./configure --enable-md4 && make
+  - script: ./configure --enable-pwdbased && make
+  - script: ./configure --enable-hc128 && make
+  - script: ./configure --enable-rabbit && make
+  - script: ./configure --enable-webserver && make
+  - script: ./configure --enable-ocsp && make
+  - script: ./configure --enable-crl && make
+  - script: ./configure --enable-ntru && make
+  - script: ./configure --enable-sni && make
+  - script: ./configure --enable-maxfragment && make
+  - script: ./configure --enable-truncatedhmac && make
+  - script: ./configure --enable-tlsx && make
+  - script: ./configure --enable-fastmath && make
+  - script: ./configure --enable-fasthugemath && make
+  - script: ./configure --enable-mcapi && make
+  - script: ./configure --enable- && make
+  - script: ./configure --enable- && make
+  - script: ./configure --enable- && make
+  - script: ./configure --enable- && make
+  - script: ./configure --enable- && make
+  - script: ./configure --enable- && make
+  - script: ./configure --enable- && make
+  - script: ./configure --enable- && make
+  - script: ./configure --enable- && make
+
