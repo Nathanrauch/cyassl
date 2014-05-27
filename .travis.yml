@@ -14,8 +14,8 @@ addons:
       name: "Nathanrauch/cyassl"
       description: "Your project description here"
     notification_email: nathan@wolfssl.com
-    build_command_prepend:
-    build_command:
+    build_command_prepend: ./configure
+    build_command: make
     branch_pattern: coverity_scan
 
 before_script: ./autogen.sh
