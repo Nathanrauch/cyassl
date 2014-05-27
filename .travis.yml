@@ -3,6 +3,10 @@ compiler:
   - gcc
   - clang
 # Change this to your needs
+before_script: ./autogen.sh
 script: 
-  - ./autogen.sh && ./configure --disable-examples --enable-dtls --enable-ipv6 --enable-bump && make
-  - ./autogen.sh && ./configure --disable-examples --enable-leanpsk && make
+  - ./configure --disable-examples --enable-dtls --enable-ipv6 --enable-bump && make
+  - ./configure --disable-examples --enable-leanpsk && make
+  - ./configure --disable-examples --enable-psk && make
+  - ./configure --disable-examples --enable-singlethreaded && make
+  - ./configure --disable-examples --enable-smallcache
