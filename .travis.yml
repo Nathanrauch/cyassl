@@ -52,4 +52,3 @@ script:
   - ./configure --disable-examples --enable-fasthugemath && make
   - ./configure --disable-examples --enable-mcapi && make
   - ./configure --disable-examples --enable- && make
-  after_script: make clean
