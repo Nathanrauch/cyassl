@@ -5,8 +5,7 @@ compiler:
 # Change this to your needs
 before_script: ./autogen.sh
 script: 
-  - ./configure --disable-examples --enable-debug && make
-  - ./configure --disable-examples --enable-singlethreaded && make
+  - ./configure --disable-examples --enable-singlethreaded --enable-debug && make
   - ./configure --disable-examples --enable-dtls && make
   - ./configure --disable-examples --enable-opensslextra && make
   - ./configure --disable-examples --enable-ipv6 && make
