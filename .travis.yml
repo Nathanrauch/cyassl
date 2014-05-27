@@ -59,4 +59,4 @@ matrix:
     - env: CONFIG = --enable-gcc-hardening
     
 script: 
-  - ./configure $CONFIG && make
+  - ./configure CONFIG && make
