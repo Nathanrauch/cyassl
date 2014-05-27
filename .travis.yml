@@ -4,14 +4,5 @@ compiler:
   - clang
 # Change this to your needs
 script: 
-  - ./autogen.sh && ./configure && make
-  - ./autogen.sh && ./configure --enable-debug && make
-  - ./autogen.sh && ./configure --enable-signlethreaded && make
-  - ./autogen.sh && ./configure --enable-dtls && make
-  - ./autogen.sh && ./configure --enable-opensslextra && make
-  - ./autogen.sh && ./configure --enable-ipv6 && make
-  - ./autogen.sh && ./configure --enable-bump && make
-  - ./autogen.sh && ./configure --enable-leanpsk && make
-  - ./autogen.sh && ./configure --enable-bigcache && make
-  - ./autogen.sh && ./configure --enable-smallcache && make
-
+  - ./autogen.sh && ./configure --disable-examples --enable-debug --enable-dtls --enable-ipv6 --enable-bump --enable-leanpsk --enable-bigcache --enable-savesession--enable-savecert --enable-sniffer --enable-aesgcm --enable-keygen --enable-certgen --enable-ocsp --enable-crl --enable-crl-monitor --enable-sni --enable-truncatedhmac --enable-valgrind --enable-testcert  && make
+  - ./autogen.sh && ./configure --disable-examples --opensslextra --enable-hugecache --enable-atomicuser --enable-pkcallbacks --enable-aesccm --enable-sessioncerts --enable-sep --enable-dsa --enable-ecc --enable-psk --enable-hc128 --enable-fasthugemath && make
