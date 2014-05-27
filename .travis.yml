@@ -7,54 +7,53 @@ before_script: ./autogen.sh
 
 matrix:
   fast_finish: true
-  include:
-    - env: ./configure--enable-debug && make
-    - env: ./configure --enable-singlethreaded && make
-    - env: ./configure --enable-dtls && make
-    - env: ./configure --enable-ipv6 && make
-    - env: ./configure --enable-bump && make
-    - env: ./configure --enable-leanpsk && make
-    - env: ./configure --enable-bigcache && make
-    - env: ./configure --enable-hugecache && make
-    - env: ./configure --enable-smallcache && make
-    - env: ./configure --enable-savesession && make
-    - env: ./configure --enable-savecert && make
-    - env: ./configure --enable-atomicuser && make
-    - env: ./configure --enable-pkcallbacks && make
-    - env: ./configure --enable-sniffer && make
-    - env: ./configure --enable-aesgcm && make
-    - env: ./configure --enable-aesccm && make
-    - env: ./configure --enable-aesni && make
-    - env: ./configure --enable-camellia && make
-    - env: ./configure --enable-md2 && make
-    - env: ./configure --enable-nullcipher && make
-    - env: ./configure --enable-ripemd && make
-    - env: ./configure --enable-blake2 && make
-    - env: ./configure --enable-sha512 && make
-    - env: ./configure --enable-sessioncerts && make
-    - env: ./configure --enable-keygen && make
-    - env: ./configure --enable-certgen && make
-    - env: ./configure --enable-sep && make
-    - env: ./configure --enable-dsa && make
-    - env: ./configure --enable-ecc && make
-    - env: ./configure--enable-psk && make
-    - env: ./configure --enable-stacksize && make
-    - env: ./configure --enable-md4 && make
-    - env: ./configure --enable-pwdbased && make
-    - env: ./configure --enable-hc128 && make
-    - env: ./configure --enable-rabbit && make
-    - env: ./configure --enable-webserver && make
-    - env: ./configure --enable-ocsp && make
-    - env: ./configure --enable-crl && make
-    - env: ./configure --enable-crl-monitor && make
-    - env: ./configure --enable-ntru && make
-    - env: ./configure --enable-sni && make
-    - env: ./configure --enable-maxfragment && make
-    - env: ./configure --enable-truncatedhmac && make
-    - env: C./configure --enable-tlsx && make
-    - env: ./configure --enable-testcert && make
-    - env: ./configure --enable-fastmath && make
-    - env: ./configure --enable-fasthugemath && make
-    - env: ./configure --enable-mcapi && make
-    - env: ./configure --enable-gcc-hardening && make
+  include: 
+    - env:  TEST = debug
+    - env:  TEST = singlethreaded 
+    - env:  TEST = dtls 
+    - env:  TEST = ipv6 
+    - env:  TEST = bump 
+    - env:  TEST = leanpsk
+    - env:  TEST = bigcache 
+    - env:  TEST = hugecache
+    - env:  TEST = smallcache 
+    - env:  TEST = savesession 
+    - env:  TEST = savecert 
+    - env: TEST = atomicuser 
+    - env: TEST = pkcallbacks 
+    - env: TEST = sniffer 
+    - env: TEST = aesgcm 
+    - env: TEST = aesccm 
+    - env: TEST = aesni 
+    - env: TEST = camellia 
+    - env: TEST = md2 
+    - env: TEST = nullcipher 
+    - env: TEST = ripemd 
+    - env: TEST = blake2 
+    - env: TEST = sha512
+    - env: TEST = sessioncerts 
+    - env: TEST = keygen 
+    - env: TEST = certgen 
+    - env: TEST = sep 
+    - env: TEST = dsa 
+    - env: TEST = ecc 
+    - env: TEST = psk
+    - env: TEST = stacksize 
+    - env: TEST = md4 
+    - env: TEST = pwdbased 
+    - env: TEST = hc128 
+    - env: TEST = rabbit 
+    - env: TEST = webserver 
+    - env: TEST = ocsp 
+    - env: TEST = crl 
+    - env: TEST = crl-monitor 
+    - env: TEST = ntru 
+    - env: TEST = sni 
+    - env: TEST = maxfragment 
+    - env: TEST = truncatedhmac 
+    - env: TEST = testcert 
+    - env: TEST = fastmath 
+    - env: TEST = fasthugemath 
+    - env: TEST = mcapi 
     
+script: ./configure --enable-$TEST && make
