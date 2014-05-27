@@ -56,4 +56,4 @@ matrix:
         - TEST = fasthugemath 
         - TEST = mcapi 
     
-script: "./configure --enable-$TEST && make"
+script: ./configure --enable-TEST && make
