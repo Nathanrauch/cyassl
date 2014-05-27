@@ -4,4 +4,4 @@ compiler:
   - clang
 # Change this to your needs
 script: 
-  - ./autogen.sh && ./configure --disable-examples --enable-debug --enable-dtls --enable-ipv6 --enable-bump --enable-leanpsk --enable-bigcache --enable-savesession--enable-savecert --enable-sniffer --enable-aesgcm --enable-keygen --enable-certgen --enable-ocsp --enable-crl --enable-crl-monitor --enable-sni --enable-truncatedhmac --enable-valgrind --enable-testcert  && make
+  - ./autogen.sh && ./configure --disable-examples --enable-debug --enable-dtls --enable-ipv6 --enable-bump --enable-leanpsk --enable-bigcache --enable-savesession--enable-savecert --enable-sniffer --enable-aesgcm --enable-keygen --enable-certgen --enable-ocsp --enable-crl --enable-crl-monitor --enable-sni --enable-truncatedhmac --enable-testcert  && make
