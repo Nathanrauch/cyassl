@@ -2,53 +2,61 @@ language: c
 compiler:
   - gcc
   - clang
-# Change this to your needs
+
 before_script: ./autogen.sh
+
+matrix:
+  fast_finish: true
+  include:
+    - env: CONFIG = --enable-debug
+    - env: CONFIG = --enable-singlethreaded
+    - env: CONFIG = --enable-dtls
+    - env: CONFIG = --enable-ipv6
+    - env: CONFIG = --enable-bump
+    - env: CONFIG = --enable-leanpsk
+    - env: CONFIG = --enable-bigcache
+    - env: CONFIG = --enable-hugecache
+    - env: CONFIG = --enable-smallcache
+    - env: CONFIG = --enable-savesession
+    - env: CONFIG = --enable-savecert
+    - env: CONFIG = --enable-atomicuser
+    - env: CONFIG = --enable-pkcallbacks
+    - env: CONFIG = --enable-sniffer
+    - env: CONFIG = --enable-aesgcm
+    - env: CONFIG = --enable-aesccm
+    - env: CONFIG = --enable-aesni
+    - env: CONFIG = --enable-camellia
+    - env: CONFIG = --enable-md2
+    - env: CONFIG = --enable-nullcipher
+    - env: CONFIG = --enable-ripemd
+    - env: CONFIG = --enable-blake2
+    - env: CONFIG = --enable-sha512
+    - env: CONFIG = --enable-sessioncerts
+    - env: CONFIG = --enable-keygen
+    - env: CONFIG = --enable-certgen
+    - env: CONFIG = --enable-sep
+    - env: CONFIG = --enable-dsa
+    - env: CONFIG = --enable-ecc
+    - env: CONFIG = --enable-psk
+    - env: CONFIG = --enable-stacksize
+    - env: CONFIG = --enable-md4
+    - env: CONFIG = --enable-pwdbased
+    - env: CONFIG = --enable-hc128
+    - env: CONFIG = --enable-rabbit
+    - env: CONFIG = --enable-webserver
+    - env: CONFIG = --enable-ocsp
+    - env: CONFIG = --enable-crl
+    - env: CONFIG = --enable-crl-monitor
+    - env: CONFIG = --enable-ntru
+    - env: CONFIG = --enable-sni
+    - env: CONFIG = --enable-maxfragment
+    - env: CONFIG = --enable-truncatedhmac
+    - env: CONFIG = --enable-tlsx
+    - env: CONFIG = --enable-testcert
+    - env: CONFIG = --enable-fastmath
+    - env: CONFIG = --enable-fasthugemath
+    - env: CONFIG = --enable-mcapi
+    - env: CONFIG = --enable-gcc-hardening
+    
 script: 
-  - ./configure --disable-examples --enable-singlethreaded --enable-debug && make
-  - ./configure --disable-examples --enable-dtls && make
-  - ./configure --disable-examples --enable-opensslextra && make
-  - ./configure --disable-examples --enable-ipv6 && make
-  - ./configure --disable-examples --enable-bump && make
-  - ./configure --disable-examples --enable-leanpsk && make
-  - ./configure --disable-examples --enable-bigcache && make
-  - ./configure --disable-examples --enable-hugecache && make
-  - ./configure --disable-examples --enable-smallcache && make
-  - ./configure --disable-examples --enable-savesession && make
-  - ./configure --disable-examples --enable-savecert && make
-  - ./configure --disable-examples --enable-atomicuser && make
-  - ./configure --disable-examples --enable-pkcallbacks && make
-  - ./configure --disable-examples --enable-sniffer && make
-  - ./configure --disable-examples --enable-aesgcm && make
-  - ./configure --disable-examples --enable-aesni && make
-  - ./configure --disable-examples --enable-camellia && make
-  - ./configure --disable-examples --enable-md2 && make
-  - ./configure --disable-examples --enable-nullcipher && make
-  - ./configure --disable-examples --enable-ripemd && make
-  - ./configure --disable-examples --enable-blake2 && make
-  - ./configure --disable-examples --enable-sha512 && make
-  - ./configure --disable-examples --enable-sessioncerts && make
-  - ./configure --disable-examples --enable-keygen && make
-  - ./configure --disable-examples --enable-certgen && make
-  - ./configure --disable-examples --enable-sep && make
-  - ./configure --disable-examples --enable-dsa && make
-  - ./configure --disable-examples --enable-ecc && make
-  - ./configure --disable-examples --enable-psk && make
-  - ./configure --disable-examples --enable-stacksize && make
-  - ./configure --disable-examples --enable-md4 && make
-  - ./configure --disable-examples --enable-pwdbased && make
-  - ./configure --disable-examples --enable-hc128 && make
-  - ./configure --disable-examples --enable-rabbit && make
-  - ./configure --disable-examples --enable-webserver && make
-  - ./configure --disable-examples --enable-ocsp && make
-  - ./configure --disable-examples --enable-crl && make
-  - ./configure --disable-examples --enable-crl-monitor && make
-  - ./configure --disable-examples --enable-ntru && make
-  - ./configure --disable-examples --enable-sni && make
-  - ./configure --disable-examples --enable-maxfragment && make
-  - ./configure --disable-examples --enable-truncatedhmac && make
-  - ./configure --disable-examples --enable-tlsl && make
-  - ./configure --disable-examples --enable-fastmath && make
-  - ./configure --disable-examples --enable-fasthugemath && make
-  - ./configure --disable-examples --enable-mcapi && make
-  - ./configure --disable-examples --enable- && make
+  - ./configure $CONFIG && make
