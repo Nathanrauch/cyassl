@@ -5,8 +5,52 @@ compiler:
 # Change this to your needs
 before_script: ./autogen.sh
 script: 
-  - ./configure --disable-examples --enable-dtls --enable-ipv6 --enable-bump && make
-  - ./configure --disable-examples --enable-leanpsk && make
-  - ./configure --disable-examples --enable-psk && make
+  - ./configure --disable-examples --enable-debug && make
   - ./configure --disable-examples --enable-singlethreaded && make
-  - ./configure --disable-examples --enable-smallcache
+  - ./configure --disable-examples --enable-dtls && make
+  - ./configure --disable-examples --enable-opensslextra && make
+  - ./configure --disable-examples --enable-ipv6 && make
+  - ./configure --disable-examples --enable-bump && make
+  - ./configure --disable-examples --enable-leanpsk && make
+  - ./configure --disable-examples --enable-bigcache && make
+  - ./configure --disable-examples --enable-hugecache && make
+  - ./configure --disable-examples --enable-smallcache && make
+  - ./configure --disable-examples --enable-savesession && make
+  - ./configure --disable-examples --enable-savecert && make
+  - ./configure --disable-examples --enable-atomicuser && make
+  - ./configure --disable-examples --enable-pkcallbacks && make
+  - ./configure --disable-examples --enable-sniffer && make
+  - ./configure --disable-examples --enable-aesgcm && make
+  - ./configure --disable-examples --enable-aesni && make
+  - ./configure --disable-examples --enable-camellia && make
+  - ./configure --disable-examples --enable-md2 && make
+  - ./configure --disable-examples --enable-nullcipher && make
+  - ./configure --disable-examples --enable-ripemd && make
+  - ./configure --disable-examples --enable-blake2 && make
+  - ./configure --disable-examples --enable-sha512 && make
+  - ./configure --disable-examples --enable-sessioncerts && make
+  - ./configure --disable-examples --enable-keygen && make
+  - ./configure --disable-examples --enable-certgen && make
+  - ./configure --disable-examples --enable-sep && make
+  - ./configure --disable-examples --enable-dsa && make
+  - ./configure --disable-examples --enable-ecc && make
+  - ./configure --disable-examples --enable-psk && make
+  - ./configure --disable-examples --enable-stacksize && make
+  - ./configure --disable-examples --enable-md4 && make
+  - ./configure --disable-examples --enable-pwdbased && make
+  - ./configure --disable-examples --enable-hc128 && make
+  - ./configure --disable-examples --enable-rabbit && make
+  - ./configure --disable-examples --enable-webserver && make
+  - ./configure --disable-examples --enable-ocsp && make
+  - ./configure --disable-examples --enable-crl && make
+  - ./configure --disable-examples --enable-crl-monitor && make
+  - ./configure --disable-examples --enable-ntru && make
+  - ./configure --disable-examples --enable-sni && make
+  - ./configure --disable-examples --enable-maxfragment && make
+  - ./configure --disable-examples --enable-truncatedhmac && make
+  - ./configure --disable-examples --enable-tlsl && make
+  - ./configure --disable-examples --enable-fastmath && make
+  - ./configure --disable-examples --enable-fasthugemath && make
+  - ./configure --disable-examples --enable-mcapi && make
+  - ./configure --disable-examples --enable- && make
+  after_script: make clean
