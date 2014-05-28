@@ -11,7 +11,6 @@ script:
   - ./configure --enable-dtls && make && echo DTLS
   - ./configure --enable-ipv6 && make && echo IPV6
   - ./configure --enable-bump && make && echo BUMP
-  - ./configure --enable-leanpsk && make && echo LEANPSK
   - ./configure --enable-bigcache && make && echo BIGCACHE
   - ./configure --enable-hugecache && make && echo HUGECACHE
   - ./configure --enable-smallcache && make && echo SMALLCACHE
@@ -51,4 +50,4 @@ script:
   - ./configure --enable-tlsx && make && echo TLSX 
   - ./configure --enable-fastmath && make && echo FASTMATH
   - ./configure --enable-fasthugemath && make && echo FASTHUGEMATH
-  - ./configure --enable-mcapi && make && echo MCAPI
+  - ./configure --enable-mcapi --enable-sha512 && make && echo MCAPI
