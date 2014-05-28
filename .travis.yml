@@ -15,10 +15,11 @@ addons:
   coverity_scan:
     project:
       name: "Nathanrauch/cyassl"
-      description: "Your project description here"
+      description: "Cyassl"
     notification_email: nathan@wolfssl.com
-    build_command_prepend: ./configure
-    build_command: make
-    branch_pattern: coverity_scan
-
-script: ./configure && make
+    build_command_prepend: "./configure"
+    build_command: "make"
+    branch_pattern: master
+    
+script: 
+  - ./configure && make
