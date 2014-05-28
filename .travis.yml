@@ -4,7 +4,6 @@ compiler:
   - clang
 
 before_script: ./autogen.sh
-
 env:
   global:
    # The next declaration is the encrypted COVERITY_SCAN_TOKEN, created
@@ -15,11 +14,9 @@ addons:
   coverity_scan:
     project:
       name: "Nathanrauch/cyassl"
-      description: "Cyassl"
     notification_email: nathan@wolfssl.com
     build_command_prepend: "./configure"
     build_command: "make"
-    branch_pattern: master
+    branch_pattern: coverity_scan
     
-script: 
-  - ./configure && make
+script: ./configure && make
