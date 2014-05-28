@@ -1,3 +1,7 @@
+language: c
+compiler:
+  - gcc
+  - clang
 notifications:
   email:
     recipients:
@@ -6,10 +10,6 @@ notifications:
     on_success: never
     on_failure: always
 
-language: c
-compiler:
-  - gcc
-  - clang
 env:
   global:
    # The next declaration is the encrypted COVERITY_SCAN_TOKEN, created
@@ -31,59 +31,55 @@ before_script: ./autogen.sh
 #magic
 matrix:
   fast_finish: true
-  - script: ./configure --enable-debug && make
-  - script: ./configure --enable-singlethreaded && make
-  - script: ./configure --enable-dtls && make
-  - script: ./configure --enable-ipv6 && make
-  - script: ./configure --enable-bump && make
-  - script: ./configure --enable-leanpsk && make
-  - script: ./configure --enable-bigcache && make
-  - script: ./configure --enable-hugecache && make
-  - script: ./configure --enable-smallcache && make
-  - script: ./configure --enable-savesession && make
-  - script: ./configure --enable-savecert && make
-  - script: ./configure --enable-atomicuser && make
-  - script: ./configure --enable-pkcallbacks && make
-  - script: ./configure --enable-sniffer && make
-  - script: ./configure --enable-aesgcm && make
-  - script: ./configure --enable-aesccm && make
-  - script: ./configure --enable-aesni && make
-  - script: ./configure --enable-camellia && make
-  - script: ./configure --enable-md2 && make
-  - script: ./configure --enable-nullcipher && make
-  - script: ./configure --enable-ripemd && make
-  - script: ./configure --enable-blake2 && make
-  - script: ./configure --enable-sha512 && make
-  - script: ./configure --enable-sessioncerts && make
-  - script: ./configure --enable-keygen && make
-  - script: ./configure --enable-certgen && make
-  - script: ./configure --enable-sep && make
-  - script: ./configure --enable-dsa && make
-  - script: ./configure --enable-ecc && make
-  - script: ./configure --enable-psk && make
-  - script: ./configure --enable-stacksize && make
-  - script: ./configure --enable-md4 && make
-  - script: ./configure --enable-pwdbased && make
-  - script: ./configure --enable-hc128 && make
-  - script: ./configure --enable-rabbit && make
-  - script: ./configure --enable-webserver && make
-  - script: ./configure --enable-ocsp && make
-  - script: ./configure --enable-crl && make
-  - script: ./configure --enable-ntru && make
-  - script: ./configure --enable-sni && make
-  - script: ./configure --enable-maxfragment && make
-  - script: ./configure --enable-truncatedhmac && make
-  - script: ./configure --enable-tlsx && make
-  - script: ./configure --enable-fastmath && make
-  - script: ./configure --enable-fasthugemath && make
-  - script: ./configure --enable-mcapi && make
-  - script: ./configure --enable- && make
-  - script: ./configure --enable- && make
-  - script: ./configure --enable- && make
-  - script: ./configure --enable- && make
-  - script: ./configure --enable- && make
-  - script: ./configure --enable- && make
-  - script: ./configure --enable- && make
-  - script: ./configure --enable- && make
-  - script: ./configure --enable- && make
-
+  include:
+  - env: TEST_SUITE=debug
+  - env: TEST_SUITE=singlethreaded
+  - env: TEST_SUITE=dtls
+  - env: TEST_SUITE=opensslextra
+  - env: TEST_SUITE=ipv6
+  - env: TEST_SUITE=bump
+  - env: TEST_SUITE=leanpsk
+  - env: TEST_SUITE=bigcache
+  - env: TEST_SUITE=hugecache
+  - env: TEST_SUITE=smallcache
+  - env: TEST_SUITE=savesession
+  - env: TEST_SUITE=savecert
+  - env: TEST_SUITE=atomicuser
+  - env: TEST_SUITE=pkcallbacks
+  - env: TEST_SUITE=sniffer
+  - env: TEST_SUITE=aesgcm
+  - env: TEST_SUITE=aesccm
+  - env: TEST_SUITE=aesni
+  - env: TEST_SUITE=camellia
+  - env: TEST_SUITE=md2
+  - env: TEST_SUITE=nullcipher
+  - env: TEST_SUITE=ripemd
+  - env: TEST_SUITE=blake2
+  - env: TEST_SUITE=sha512
+  - env: TEST_SUITE=sessioncerts
+  - env: TEST_SUITE=keygen
+  - env: TEST_SUITE=certgen
+  - env: TEST_SUITE=sep
+  - env: TEST_SUITE=dsa
+  - env: TEST_SUITE=ecc
+  - env: TEST_SUITE=psk
+  - env: TEST_SUITE=stacksize
+  - env: TEST_SUITE=md4
+  - env: TEST_SUITE=pwdbased
+  - env: TEST_SUITE=hc128
+  - env: TEST_SUITE=rabbit
+  - env: TEST_SUITE=webserver
+  - env: TEST_SUITE=ocsp
+  - env: TEST_SUITE=crl
+  - env: TEST_SUITE=crl-monitor
+  - env: TEST_SUITE=ntru
+  - env: TEST_SUITE=sni
+  - env: TEST_SUITE=maxfragment
+  - env: TEST_SUITE=truncatedhmac
+  - env: TEST_SUITE=tlsx
+  - env: TEST_SUITE=testcert
+  - env: TEST_SUITE=fastmath
+  - env: TEST_SUITE=fasthugemath
+  - env: TEST_SUITE=mcapi
+  
+script: ./configure --enable-$TEST_SUITE && make
