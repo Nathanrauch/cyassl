@@ -5,4 +5,4 @@ compiler:
 
 before_script: ./autogen.sh
 
-script:  ./configure --enable-debug && make && if[after_failure]; then echo Debug Failed!! else echo Debug Passed! fi 
+script:  ./configure --enable-debug && make && if[ "$after_failure" = 0]; then echo Debug Failed!! else echo Debug Passed! fi 
