@@ -40,13 +40,12 @@ script:
   - ./configure --enable-pwdbased && make && echo PWDBASED
   - ./configure --enable-hc128 && make && echo HC128
   - ./configure --enable-rabbit && make && echo RABBIT
-  - ./configure --enable-webserver && make echo WEBSERVER
+  - ./configure --enable-webserver && make && echo WEBSERVER
   - ./configure --enable-ocsp && make && echo OSCP
   - ./configure --enable-crl && make && echo CRL
-  - ./configure --enable-ntru && make && echo NTRU
   - ./configure --enable-sni && make && echo SNI
   - ./configure --enable-maxfragment && make && echo MAXFRAGMENT
-  - ./configure --enable-truncatedhmac && make && echo TRUNCATEDHMAC
+  - ./configure --enable-truncatedhmac --enable-ecc && make && echo TRUNCATEDHMAC
   - ./configure --enable-tlsx && make && echo TLSX 
   - ./configure --enable-fastmath && make && echo FASTMATH
   - ./configure --enable-fasthugemath && make && echo FASTHUGEMATH
