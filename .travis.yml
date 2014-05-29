@@ -45,8 +45,8 @@ script:
   - ./configure --enable-crl && make && echo CRL
   - ./configure --enable-sni && make && echo SNI
   - ./configure --enable-maxfragment && make && echo MAXFRAGMENT
-  - ./configure --enable-truncatedhmac --enable-ecc && make && echo TRUNCATEDHMAC
-  - ./configure --enable-tlsx && make && echo TLSX 
+  - ./configure --enable-truncatedhmac && make && echo TRUNCATEDHMAC
+  - ./configure --enable-tlsx --enable-ecc && make && echo TLSX 
   - ./configure --enable-fastmath && make && echo FASTMATH
   - ./configure --enable-fasthugemath && make && echo FASTHUGEMATH
-  - ./configure --enable-mcapi --enable-sha512 --enable-ecc && make && echo MCAPI
+  - ./configure --enable-mcapi --enable-sha512 --enable-ecc --with-libz && make && echo MCAPI
