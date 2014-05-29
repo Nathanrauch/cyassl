@@ -9,4 +9,11 @@ env:
 - Option=debug
 - Option=singlethreaded
 - Option=dtls
+- Option=opensslextra
+- Option=ipv6
+- Option=bump
+- Option=bigcache
 script: ./configure --enable-$Option && make && echo DEBUG
+
+matrix:
+  fast_finish: true
