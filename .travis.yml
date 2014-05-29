@@ -1,7 +1,8 @@
 language: c
 compiler:
   - clang
-
+  - gcc
+  
 env:
   global:
     # COVERITY_SCAN_TOKEN
