@@ -5,48 +5,8 @@ compiler:
 
 before_script: ./autogen.sh
 
-script:   
-  - ./configure --enable-debug && make && echo DEBUG
-  - ./configure --enable-singlethreaded && make && echo SINGLETHREADED
-  - ./configure --enable-dtls && make && echo DTLS
-  - ./configure --enable-ipv6 && make && echo IPV6
-  - ./configure --enable-bump && make && echo BUMP
-  - ./configure --enable-bigcache && make && echo BIGCACHE
-  - ./configure --enable-hugecache && make && echo HUGECACHE
-  - ./configure --enable-smallcache && make && echo SMALLCACHE
-  - ./configure --enable-savesession && make && echo SAVESESSION
-  - ./configure --enable-savecert && make && echo SAVECERT
-  - ./configure --enable-atomicuser && make && echo ATOMICUSER
-  - ./configure --enable-pkcallbacks && make && echo PKCALLBACK
-  - ./configure --enable-sniffer && make && echo SNIFFER
-  - ./configure --enable-aesgcm && make && echo AESGCM 
-  - ./configure --enable-aesccm && make && echo AESCCM
-  - ./configure --enable-aesni && make && echo AESNI
-  - ./configure --enable-camellia && make && echo CAMELLIA
-  - ./configure --enable-md2 && make && echo MD2 
-  - ./configure --enable-nullcipher && make && echo NULLCIPHER
-  - ./configure --enable-ripemd && make && echo RIPEMD
-  - ./configure --enable-blake2 && make && echo BLAKE2
-  - ./configure --enable-sha512 && make && echo SHA512
-  - ./configure --enable-sessioncerts && make && echo SESSIONCERTS
-  - ./configure --enable-keygen && make && echo KEYGEN
-  - ./configure --enable-certgen && make && echo CERTGEN
-  - ./configure --enable-sep && make && echo SEP
-  - ./configure --enable-dsa && make && echo DSA
-  - ./configure --enable-ecc && make && echo ECC
-  - ./configure --enable-psk && make && echo PSK
-  - ./configure --enable-stacksize && make && echo STACKSIZE
-  - ./configure --enable-md4 && make && echo MD4
-  - ./configure --enable-pwdbased && make && echo PWDBASED
-  - ./configure --enable-hc128 && make && echo HC128
-  - ./configure --enable-rabbit && make && echo RABBIT
-  - ./configure --enable-webserver && make && echo WEBSERVER
-  - ./configure --enable-ocsp && make && echo OSCP
-  - ./configure --enable-crl && make && echo CRL
-  - ./configure --enable-sni && make && echo SNI
-  - ./configure --enable-maxfragment && make && echo MAXFRAGMENT
-  - ./configure --enable-truncatedhmac && make && echo TRUNCATEDHMAC
-  - ./configure --enable-tlsx --enable-ecc && make && echo TLSX 
-  - ./configure --enable-fastmath && make && echo FASTMATH
-  - ./configure --enable-fasthugemath && make && echo FASTHUGEMATH
-  - ./configure --enable-mcapi --enable-sha512 --enable-ecc --with-libz && make && echo MCAPI
+env:
+- Option=debug
+- Option=singlethreaded
+- Option=dtls
+script: ./configure --enable-$Option && make && echo DEBUG
